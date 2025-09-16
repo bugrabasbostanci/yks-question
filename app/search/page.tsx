@@ -1,19 +1,16 @@
 "use client"
 
-import { useRouter } from "next/navigation"
 import { SearchFilters } from "@/components/search-filters"
 import { QuestionGrid } from "@/components/question-grid"
 
-export default function HomePage() {
-  const router = useRouter()
-
+export default function SearchPage() {
   return (
     <div className="space-y-6">
       {/* Page Header */}
       <div>
-        <h1 className="text-3xl font-bold text-foreground">Soru Arşivi</h1>
+        <h1 className="text-3xl font-bold text-foreground">Soru Arama</h1>
         <p className="text-muted-foreground mt-2">
-          YKS hazırlığınız için tüm sorularınızı organize edin
+          Sorularınızı filtreleyin ve arayın
         </p>
       </div>
 
@@ -23,7 +20,7 @@ export default function HomePage() {
       {/* Questions Grid */}
       <QuestionGrid onQuestionClick={(id) => {
         // Navigate to question detail page
-        router.push(`/question/${id}`)
+        window.location.href = `/question/${id}`
       }} />
     </div>
   )
