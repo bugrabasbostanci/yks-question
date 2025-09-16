@@ -37,7 +37,9 @@ export function useImageViewer(): UseImageViewerReturn {
     });
 
     // Prevent body scroll when viewer is open
-    document.body.style.overflow = "hidden";
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = "hidden";
+    }
   }, []);
 
   const closeViewer = useCallback(() => {
@@ -48,7 +50,9 @@ export function useImageViewer(): UseImageViewerReturn {
     });
 
     // Restore body scroll
-    document.body.style.overflow = "unset";
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = "unset";
+    }
   }, []);
 
   const handleKeyDown = useCallback((event: KeyboardEvent) => {
@@ -69,7 +73,7 @@ export function useImageViewer(): UseImageViewerReturn {
 
   // Setup keyboard listeners
   useEffect(() => {
-    if (state.isOpen) {
+    if (state.isOpen && typeof document !== 'undefined') {
       document.addEventListener("keydown", handleKeyDown);
       return () => {
         document.removeEventListener("keydown", handleKeyDown);
@@ -80,7 +84,9 @@ export function useImageViewer(): UseImageViewerReturn {
   // Cleanup on unmount
   useEffect(() => {
     return () => {
-      document.body.style.overflow = "unset";
+      if (typeof document !== 'undefined') {
+        document.body.style.overflow = "unset";
+      }
     };
   }, []);
 

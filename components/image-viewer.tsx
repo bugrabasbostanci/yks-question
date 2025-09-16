@@ -31,7 +31,7 @@ export function ImageViewer({ isOpen, imageUrl, imageAlt, onClose }: ImageViewer
 
   // Keyboard shortcuts for zoom controls
   useEffect(() => {
-    if (!isOpen) return;
+    if (!isOpen || typeof document === 'undefined') return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
       switch (e.key) {
@@ -67,7 +67,7 @@ export function ImageViewer({ isOpen, imageUrl, imageAlt, onClose }: ImageViewer
 
   // Prevent scroll when viewer is open
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && typeof window !== 'undefined') {
       const originalStyle = window.getComputedStyle(document.body).overflow;
       document.body.style.overflow = "hidden";
       return () => {

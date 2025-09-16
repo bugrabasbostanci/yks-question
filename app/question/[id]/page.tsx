@@ -80,7 +80,8 @@ export default function QuestionDetailPage() {
   const handleDeleteQuestion = async () => {
     if (!currentQuestion) return;
 
-    if (confirm("Bu soruyu silmek istediğinizden emin misiniz?")) {
+    // Browser-safe confirm dialog
+    if (typeof window !== 'undefined' && confirm("Bu soruyu silmek istediğinizden emin misiniz?")) {
       await deleteQuestion(currentQuestion.id);
       router.push("/");
     }
