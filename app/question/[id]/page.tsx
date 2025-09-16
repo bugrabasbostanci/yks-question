@@ -1,6 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+
+// Edge Runtime configuration for Cloudflare Pages
+export const runtime = 'edge';
 import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import { ArrowLeft, Heart, BookOpen, Edit, Trash2, ZoomIn } from "lucide-react";

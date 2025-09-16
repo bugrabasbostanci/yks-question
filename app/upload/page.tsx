@@ -1,5 +1,8 @@
 "use client";
 
+// Edge Runtime configuration for Cloudflare Pages
+export const runtime = 'edge';
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, Save, Loader2 } from "lucide-react";

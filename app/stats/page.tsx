@@ -1,4 +1,7 @@
-"use client"
+"use client";
+
+// Edge Runtime configuration for Cloudflare Pages
+export const runtime = 'edge';
 
 import { useEffect } from "react"
 import { BarChart3, Heart, CheckCircle, BookOpen } from "lucide-react"

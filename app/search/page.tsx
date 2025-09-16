@@ -1,4 +1,7 @@
-"use client"
+"use client";
+
+// Edge Runtime configuration for Cloudflare Pages
+export const runtime = 'edge';
 
 import { SearchFilters } from "@/components/search-filters"
 import { QuestionGrid } from "@/components/question-grid"
